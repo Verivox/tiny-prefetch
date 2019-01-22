@@ -6,7 +6,7 @@ export class Query {
         return new Map<string, string>(
             this.queryString.split('&').map(
                 (pair) => pair.split('='),
-            ) as [string, string]
+            ) as any
         )
     }
 
