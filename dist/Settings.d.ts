@@ -4,5 +4,5 @@ export declare abstract class Settings {
     protected prefetch: ParallelFetch;
     constructor(query: Map<string, string>, prefetch: ParallelFetch);
     protected getUrls(): string[];
-    asMap(): Map<string, Promise<string>>;
+    resultAsMap(): Map<string, Promise<string>>;
 }

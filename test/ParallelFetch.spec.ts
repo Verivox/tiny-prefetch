@@ -4,7 +4,7 @@ import * as sinon from 'sinon'
 
 describe('ParallelFetch', () => {
     const headersFixture = {
-        'hello': 'world'
+        hello: 'world'
     }
     const errorMessageFixture = 'i am an error'
 
@@ -19,7 +19,9 @@ describe('ParallelFetch', () => {
         }
 
         // System under test
-        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
+        const parallelFetch = new ParallelFetch(headersFixture,
+            errorMessageFixture,
+            fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
 
         // Act
         await parallelFetch.fetch('http://some_url')
@@ -38,7 +40,9 @@ describe('ParallelFetch', () => {
         }
 
         // System under test
-        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
+        const parallelFetch = new ParallelFetch(headersFixture,
+            errorMessageFixture,
+            fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
 
         // Act
         const res = await parallelFetch.fetch('http://some_url')
@@ -57,7 +61,9 @@ describe('ParallelFetch', () => {
         }
 
         // System under test
-        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn  as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
+        const parallelFetch = new ParallelFetch(headersFixture,
+            errorMessageFixture,
+            fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
 
         // Act
         const res = await parallelFetch.fetch('http://some_url')

@@ -2,6 +2,12 @@ import { SearchQuery } from "../src/Query"
 import { ParallelFetch } from "../src/ParallelFetch"
 import { Settings } from '../src/Settings'
 
+declare global {
+    interface Window {
+        responses: Map<string, Promise<string>>
+    }
+}
+
 class UrlSettings extends Settings {
     private apiUrl = '{{apiUrl}}'
 
@@ -25,8 +31,7 @@ class UrlSettings extends Settings {
     }
 }
 
-
-(window as any).responses = new UrlSettings(
+window.responses = new UrlSettings(
     new SearchQuery({} as Location).getParameters(),
     new ParallelFetch(
         {
@@ -35,4 +40,4 @@ class UrlSettings extends Settings {
         },
         '{ "error": "empty" }',
     )
-).asMap()
+).resultAsMap()

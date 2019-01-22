@@ -22,11 +22,10 @@ class MockSettings extends MockSettingsBase {
 
 }
 
-
 describe('Settings', () => {
     const queryFixture = new Map([ [ 'hello', 'world' ] ])
     const headersFixture = {
-        'accept': 'application/json'
+        accept: 'application/json'
     }
     const errorMessageFixture = 'Nothing to see here'
     const fetchFn: unknown = async () => {
@@ -38,7 +37,9 @@ describe('Settings', () => {
     let parallelFetch: ParallelFetch
 
     beforeEach(() => {
-        parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
+        parallelFetch = new ParallelFetch(headersFixture,
+            errorMessageFixture,
+            fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
     })
 
     it('throws an error if no getUrls is implemented', () => {
@@ -47,7 +48,7 @@ describe('Settings', () => {
 
         // Act & Assert
         expect(mockSettings.getUrls.bind((mockSettings))).to.throw
-        expect(mockSettings.asMap.bind(mockSettings)).to.throw
+        expect(mockSettings.resultAsMap.bind(mockSettings)).to.throw
     })
 
     it('crates a map in the proper format', () => {
@@ -55,7 +56,7 @@ describe('Settings', () => {
         const mockSettings = new MockSettings(queryFixture, parallelFetch)
 
         // Act
-        const result = mockSettings.asMap()
+        const result = mockSettings.resultAsMap()
 
         // Assert
         expect(result.size).to.equal(1)

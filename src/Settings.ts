@@ -9,7 +9,7 @@ export abstract class Settings {
         throw new Error('no url implemented!')
     }
 
-    public asMap(): Map<string, Promise<string>> {
+    public resultAsMap(): Map<string, Promise<string>> {
         const data = this.getUrls()
             .map((url) => [url, this.prefetch.fetch(url)])
         return new Map(data as any)

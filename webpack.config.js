@@ -21,8 +21,8 @@ module.exports = {
         extensions: [ '.ts' ]
     },
     output: {
-        filename: 'parallel_fetch.js',
+        filename: 'parallelizer.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'ParallelFetch'
+        library: 'Parallelizer'
     }
 }
