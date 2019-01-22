@@ -1,15 +1,22 @@
 {
   "name": "prefetch",
   "version": "1.0.0",
-  "description": "",
+  "description": "Can be used to make crucial GET requests while an application is still loading",
   "main": "dist/parallel_fetch.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "lint": "tslint -p tsconfig.json",
     "test": "mocha -r 'ts-node/register' test/*.spec.ts",
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Fetch",
+    "parallel",
+    "prefetch",
+    "get request"
+  ],
+  "author": "Kim Almasan <kim.almasan@kumbier.it> (https://kumbier.it)",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
