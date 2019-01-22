@@ -1,6 +1,5 @@
-import * as assert from 'assert';
 import { expect } from 'chai';
-import { HashQuery, Query, SearchQuery } from '../src/GetParameters';
+import { HashQuery, Query, SearchQuery } from '../src/Query';
 
 describe('Query', () => {
     it('can be created from a string', () => {

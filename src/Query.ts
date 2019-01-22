@@ -6,8 +6,8 @@ export class Query {
         return new Map<string, string>(
             this.queryString.split('&').map(
                 (pair) => pair.split('='),
-            ) as [],
-        );
+            ) as [string, string]
+        )
     }
 
     public equals(other: Query): boolean {
@@ -20,12 +20,12 @@ export class HashQuery extends Query {
     Sometimes query strings can be found in the hash (i.e. AngularJS)
      */
     constructor(location: Location) {
-        super(location.hash.split('?')[ 1 ]);
+        super(location.hash.split('?')[ 1 ])
     }
 }
 
 export class SearchQuery extends Query {
     constructor(location: Location) {
-        super(location.search.substr(1));
+        super(location.search.substr(1))
     }
 }
