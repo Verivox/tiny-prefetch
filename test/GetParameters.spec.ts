@@ -14,30 +14,46 @@ describe('Query', () => {
         expect(map.size).to.equal(3);
     });
 
-    it('can be created from a location query string', () => {
-
+    it('can be created from a broken string', () => {
         // Arrange
-        const location = { search: '?a=1&b=2&c=3' } as Location;
-        const expected = new Query('a=1&b=2&c=3');
+        const brokenQueryString = 'a=1&b=2&c=';
 
         // System under Test
-        const qs = new SearchQuery(location);
+        const qs = new Query(brokenQueryString);
+
+        // Act
+        const map = qs.getParameters();
 
         // Assert
-        expect(qs.equals(expected)).to.equal(true);
+        expect(map.get('c')).to.not.equal('3');
+        expect(map.size).to.equal(3);
     });
 
-    it('can be created from a location hash', () => {
+    describe('SearchQuery', () => {
+        it('can be created from a location query string', () => {
+            // Arrange
+            const location = { search: '?a=1&b=2&c=3' } as Location;
+            const expected = new Query('a=1&b=2&c=3');
 
-        // Arrange
-        const location = { hash: '#somehash?a=1&b=2&c=3' } as Location;
-        const expected = new Query('a=1&b=2&c=3');
+            // System under Test, Act
+            const qs = new SearchQuery(location);
 
-        // System under Test
-        const qs = new HashQuery(location);
-
-        // Assert
-        expect(qs.equals(expected)).to.equal(true);
+            // Assert
+            expect(qs.equals(expected)).to.equal(true);
+        });
     });
 
+    describe('HashQuery', () => {
+        it('can be created from the hash location', () => {
+            // Arrange
+            const location = { hash: '#somehash?a=1&b=2&c=3' } as Location;
+            const expected = new Query('a=1&b=2&c=3');
+
+            // System under Test, Act
+            const qs = new HashQuery(location);
+
+            // Assert
+            expect(qs.equals(expected)).to.equal(true);
+        });
+    });
 });

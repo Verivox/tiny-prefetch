@@ -6,29 +6,21 @@ export interface UrlSettings {
     getUrls(): string[]
 }
 
-export class PrefetchGetRequests {
-    constructor(private settings: UrlSettings,
+export class Prefetch {
+    constructor(private headers: any,
+                private emptyErrorMessage: string,
                 private _fetch = window.fetch.bind(window)) {
-        return this.asMap() as any;
     }
 
-    protected asMap() {
-        const map = new Map();
-        for (const url of this.settings.getUrls()) {
-            map.set(url, this.fetch(url));
-        }
-        return map;
-    }
-
-    private async fetch(url: string) {
+    public async fetch(url: string) {
         try {
             const req = await this._fetch(url, {
                 mode   : 'cors',
-                headers: this.settings.headers,
+                headers: this.headers,
             });
-            return await req.text() || this.settings.emptyErrorMessage;
+            return await req.text() || this.emptyErrorMessage;
         } catch (err) {
-            return this.settings.emptyErrorMessage;
+            return this.emptyErrorMessage;
         }
     }
 }

@@ -16,6 +16,9 @@ export class Query {
 }
 
 export class HashQuery extends Query {
+    /*
+    Sometimes query strings can be found in the hash (i.e. AngularJS)
+     */
     constructor(location: Location) {
         super(location.hash.split('?')[ 1 ]);
     }
