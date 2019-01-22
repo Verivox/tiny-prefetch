@@ -1,6 +1,6 @@
-import { SearchQuery } from "./src/Query"
-import { ParallelFetch } from "./src/ParallelFetch"
-import { Settings } from './src/Settings'
+import { SearchQuery } from "../src/Query"
+import { ParallelFetch } from "../src/ParallelFetch"
+import { Settings } from '../src/Settings'
 
 class VxUrlSettings extends Settings {
     private apiUrl = '{{apiUrl}}'
