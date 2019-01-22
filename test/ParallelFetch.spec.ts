@@ -11,7 +11,7 @@ describe('ParallelFetch', () => {
     it('calls the function', async () => {
         // Arrange
         const spy = sinon.spy()
-        const fetchFn = async () => {
+        const fetchFn: unknown = async () => {
             spy()
             return {
                 text: async () => 'working'
@@ -19,7 +19,7 @@ describe('ParallelFetch', () => {
         }
 
         // System under test
-        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn)
+        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
 
         // Act
         await parallelFetch.fetch('http://some_url')
@@ -31,14 +31,14 @@ describe('ParallelFetch', () => {
 
     it('returns custom error if response empty', async () => {
         // Arrange
-        const fetchFn = async () => {
+        const fetchFn: unknown = async () => {
             return {
                 text: async () => ''
             }
         }
 
         // System under test
-        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn)
+        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
 
         // Act
         const res = await parallelFetch.fetch('http://some_url')
@@ -50,14 +50,14 @@ describe('ParallelFetch', () => {
     it('returns results', async () => {
         // Arrange
         const serviceResponse = 'working'
-        const fetchFn = async () => {
+        const fetchFn: unknown = async () => {
             return {
                 text: async () => serviceResponse
             }
         }
 
         // System under test
-        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn)
+        const parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn  as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
 
         // Act
         const res = await parallelFetch.fetch('http://some_url')

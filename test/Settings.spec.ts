@@ -29,7 +29,7 @@ describe('Settings', () => {
         'accept': 'application/json'
     }
     const errorMessageFixture = 'Nothing to see here'
-    const fetchFn = async () => {
+    const fetchFn: unknown = async () => {
         return {
             text: async () => 'results from webservice'
         }
@@ -38,7 +38,7 @@ describe('Settings', () => {
     let parallelFetch: ParallelFetch
 
     beforeEach(() => {
-        parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn)
+        parallelFetch = new ParallelFetch(headersFixture, errorMessageFixture, fetchFn as (input: RequestInfo, init?: RequestInit | undefined) => Promise<Response>)
     })
 
     it('throws an error if no getUrls is implemented', () => {
