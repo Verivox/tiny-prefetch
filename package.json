@@ -30,6 +30,6 @@
     "tslint": "^5.12.1",
     "typescript": "^3.2.2",
     "webpack": "^4.29.0",
-    "webpack-cli": "^5.2.1"
+    "webpack-cli": "^3.2.1"
   }
 }
