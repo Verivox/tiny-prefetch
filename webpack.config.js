@@ -21,8 +21,8 @@ module.exports = {
         extensions: [ '.ts' ]
     },
     output: {
-        filename: 'parallelizer.js',
+        filename: 'tiny_prefetch.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'Parallelizer'
+        library: 'TinyPrefetch'
     }
 }

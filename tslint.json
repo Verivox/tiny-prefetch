@@ -15,7 +15,8 @@
         "member-ordering": false,
         "max-classes-per-file": false,
         "trailing-comma": false,
-        "no-unused-expression": false
+        "no-unused-expression": false,
+        "arrow-parens": false
     },
     "rulesDirectory": []
 }

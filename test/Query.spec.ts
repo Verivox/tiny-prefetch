@@ -7,7 +7,7 @@ describe('Query', () => {
         const qs = new Query('a=1&b=2&c=3');
 
         // Act
-        const map = qs.getParameters();
+        const map = qs.asMap();
 
         // Assert
         expect(map.size).to.equal(3);
@@ -21,7 +21,7 @@ describe('Query', () => {
         const qs = new Query(brokenQueryString);
 
         // Act
-        const map = qs.getParameters();
+        const map = qs.asMap();
 
         // Assert
         expect(map.get('c')).to.not.equal('3');

@@ -2,11 +2,9 @@ export class Query {
     constructor(private queryString: string) {
     }
 
-    public getParameters(): Map<string, string> {
+    public asMap(): Map<string, string> {
         return new Map<string, string>(
-            this.queryString.split('&').map(
-                (pair) => pair.split('='),
-            ) as any
+            this.queryString.split('&').map((pair) => pair.split('=')) as Array<[string, string]>
         )
     }
 
@@ -19,13 +17,13 @@ export class HashQuery extends Query {
     /*
     Sometimes query strings can be found in the hash (i.e. AngularJS)
      */
-    constructor(location: Location) {
-        super(location.hash.split('?')[ 1 ])
+    constructor(location: Location = window.location) {
+        super(location.hash.split('?')[1])
     }
 }
 
 export class SearchQuery extends Query {
-    constructor(location: Location) {
+    constructor(location: Location = window.location) {
         super(location.search.substr(1))
     }
 }

@@ -1,8 +1,8 @@
 {
-  "name": "Parallelizer",
+  "name": "@verivox/tiny-prefetch",
   "version": "1.0.0",
   "description": "Can be used to make crucial GET requests while an application is still loading",
-  "main": "dist/parallel_fetch.js",
+  "main": "dist/tiny_prefetch.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "lint": "tslint -p tsconfig.json",
@@ -20,16 +20,18 @@
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.18",
-    "@types/sinon": "^7.0.4",
+    "@types/node": "^11.9.0",
+    "@types/sinon": "^7.0.5",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "sinon": "^7.2.3",
     "ts-loader": "^5.3.3",
-    "ts-node": "^7.0.1",
+    "ts-node": "^8.0.2",
     "tslint": "^5.12.1",
-    "typescript": "^3.2.2",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
   }
 }
