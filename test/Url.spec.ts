@@ -9,7 +9,7 @@ class TestableUrl extends Url {
     constructor() {
         const spy = sinon.spy();
         const fetchSpy: any = async () => ({ text: spy })
-        super("http://example.com", { auth: 'iamaverylongtokenofsomekind' }, '', fetchSpy);
+        super("http://example.com", { auth: 'iamaverylongtokenofsomekind' }, '', fetchSpy)
         this.spy = spy
     }
 

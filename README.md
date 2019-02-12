@@ -1,9 +1,10 @@
 # TinyPrefetch
 
-TinyPrefetch is a small utility that can be used to fire GET requests and get the results on demand.
+A tiny prefetcher to early fetch API requests and reduce the critical call chain and increase app performance.
 
 # Usage
 Install the package as a dependency: `npm install @verivox/tiny-prefetch`
+
 ```ts
 import { SearchQuery, Url, Urls } from "@verivox/tiny-prefetch"
 
@@ -49,6 +50,13 @@ const urlList = new Urls(new UrlSettings(new SearchQuery(location).asMap()).getU
 
 window.responses = urlList
 ```
+
+The results are saved as promise to `window.responses` - await those from your application to get the results when ready.
+
+### Why not use web workers instead?
+
+Because web workers do a lot more, which adds unnecessary size to your application. If you only want to pre-cache some resources or calls, this library is all you need - if you need the other functionality that web workers provide, use them instead.
+
 
 ## Development
 

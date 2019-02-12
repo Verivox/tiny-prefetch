@@ -21,7 +21,6 @@ class TestableUrls extends Urls {
 }
 
 describe('Urls', () => {
-
     it('creates a map from an array of Url', async  () => {
         // Prepare
         const plainUrls = ['example.com', 'api.example.com', 'api.example.com/averylongrequest']

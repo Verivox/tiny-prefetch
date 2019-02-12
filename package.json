@@ -10,10 +10,14 @@
     "build": "webpack"
   },
   "keywords": [
-    "Fetch",
+    "fetch",
     "parallel",
     "prefetch",
-    "get request"
+    "get",
+    "PWA",
+    "performance",
+    "web worker",
+    "angular"
   ],
   "author": "Kim Almasan <kim.almasan@kumbier.it> (https://kumbier.it)",
   "license": "MIT",
