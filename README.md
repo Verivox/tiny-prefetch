@@ -1,4 +1,8 @@
 # TinyPrefetch
+[![CircleCI branch](https://img.shields.io/circleci/project/github/Verivox/tiny-prefetch/master.svg?style=flat-square)](https://circleci.com/gh/Verivox/tiny-prefetch)
+[![NpmLicense](https://img.shields.io/npm/l/@verivox/tiny-prefetch.svg?style=flat-square)](https://www.npmjs.com/package/@verivox/tiny-prefetch)
+[![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/@verivox/tiny-prefetch.svg?style=flat-square)](https://www.npmjs.com/package/@verivox/tiny-prefetch)
+[![npm (scoped)](https://img.shields.io/npm/v/@verivox/tiny-prefetch.svg?style=flat-square)](https://www.npmjs.com/package/@verivox/tiny-prefetch)
 
 A tiny prefetcher to early fetch API requests and reduce the critical call chain and increase app performance.
 
