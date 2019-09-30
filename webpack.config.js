@@ -23,6 +23,7 @@ module.exports = {
     output: {
         filename: 'tiny_prefetch.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'TinyPrefetch'
+        library: 'TinyPrefetch',
+        libraryTarget: "window"
     }
 }
