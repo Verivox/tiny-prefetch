@@ -1,11 +1,12 @@
-import { Url } from './Url'
+import { IUrl, RequestResponse, Url, UrlRequest } from './Url'
 
-type UrlResponse = Promise<string>
+type UrlResponse = Promise<string | RequestResponse>
 
 export class Urls {
     protected _results = new Map()
 
-    constructor(urlArray: Url[] = []) {
+    constructor(urlArray: IUrl[] = []) {
+        urlArray.map(u => [u.url, u.toPromise()])
         this._results = new Map<string, UrlResponse>(urlArray.map(u => [u.url, u.toPromise()]) as Array<[string, UrlResponse]>)
     }
 
