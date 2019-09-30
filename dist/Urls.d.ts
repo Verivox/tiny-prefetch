@@ -1,8 +1,8 @@
-import { Url } from './Url';
-declare type UrlResponse = Promise<string>;
+import { IUrl, RequestResponse, Url } from './Url';
+declare type UrlResponse = Promise<string | RequestResponse>;
 export declare class Urls {
     protected _results: Map<any, any>;
-    constructor(urlArray?: Url[]);
+    constructor(urlArray?: IUrl[]);
     get(key: string): any;
     has(key: string): boolean;
     readonly [Symbol.toStringTag]: string;
