@@ -5,8 +5,8 @@ export declare class Urls {
     constructor(urlArray?: IUrl[]);
     get(key: string): any;
     has(key: string): boolean;
-    readonly [Symbol.toStringTag]: string;
-    readonly size: number;
+    get [Symbol.toStringTag](): string;
+    get size(): number;
     [Symbol.iterator](): IterableIterator<[string, UrlResponse]>;
     clear(): void;
     delete(key: string): boolean;
